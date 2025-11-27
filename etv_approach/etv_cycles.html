@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>ETV Cycles</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="etv_cycles_files/libs/clipboard/clipboard.min.js"></script>
+<script src="etv_cycles_files/libs/quarto-html/quarto.js"></script>
+<script src="etv_cycles_files/libs/quarto-html/popper.min.js"></script>
+<script src="etv_cycles_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="etv_cycles_files/libs/quarto-html/anchor.min.js"></script>
+<link href="etv_cycles_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="etv_cycles_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="etv_cycles_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="etv_cycles_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="etv_cycles_files/libs/bootstrap/bootstrap-c0367b04c37547644fece4185067e4a7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">ETV Cycles</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Many cyckes can be made this is purely for illustration purposes</p>
+<p>The driving piece is extraction</p>
+<p>Types:</p>
+<ol type="1">
+<li>CSV</li>
+<li>XLSX</li>
+<li>Google Sheet</li>
+<li>wiki html 1</li>
+<li>weather api 1</li>
+<li>wiki html 2</li>
+<li>______ api 2</li>
+</ol>
+<section id="cycle-1-foundations-of-personal-data-awareness-csv-survey-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="cycle-1-foundations-of-personal-data-awareness-csv-survey-analysis">Cycle 1: Foundations of Personal Data Awareness (CSV Survey Analysis)</h2>
+<section id="a-datastatistical-question" class="level3">
+<h3 class="anchored" data-anchor-id="a-datastatistical-question">A) Data/Statistical Question</h3>
+<p><em>How do Cal Poly students use their cell phones, and what patterns emerge in their daily screen time, app usage, and device habits?</em> This question anchors the cycle in authentic, personally meaningful data, creating immediate engagement and a sense of ownership over the analysis.</p>
+<hr>
+</section>
+<section id="b-pedagogical-purpose" class="level3">
+<h3 class="anchored" data-anchor-id="b-pedagogical-purpose">B) Pedagogical Purpose</h3>
+<p>Cycle 1 introduces the core principles of ETV using a clean, familiar data format. Students learn:</p>
+<ul>
+<li>how to import structured data,</li>
+<li>how to inspect and reason about object structure,</li>
+<li>how early decisions affect downstream transformations, and</li>
+<li>how to generate simple visualizations grounded in their own lived experience.</li>
+</ul>
+<p>This cycle establishes the foundational habits of workflow-based thinking before messiness is introduced in later cycles.</p>
+<hr>
+</section>
+<section id="c-data-extraction-csv" class="level3">
+<h3 class="anchored" data-anchor-id="c-data-extraction-csv">C) Data Extraction — CSV</h3>
+<p>Students extract their own smartphone–usage survey from a CSV file exported from Google Forms or Qualtrics. Key goals:</p>
+<ul>
+<li>understanding file paths and working directories,</li>
+<li>reading data into an R object, and</li>
+<li>verifying that the imported data structure matches expectations.</li>
+</ul>
+<p>Extraction is intentionally clean to keep cognitive load low.</p>
+<hr>
+</section>
+<section id="d-data-transformation" class="level3">
+<h3 class="anchored" data-anchor-id="d-data-transformation">D) Data Transformation</h3>
+<section id="i.-key-functions" class="level4">
+<h4 class="anchored" data-anchor-id="i.-key-functions">i. Key Functions</h4>
+<ul>
+<li><code>select()</code></li>
+<li><code>filter()</code></li>
+</ul>
+<p>(Additional functions may be introduced organically as needed but should not be required.)</p>
+</section>
+<section id="ii.-implementation-and-reasoning" class="level4">
+<h4 class="anchored" data-anchor-id="ii.-implementation-and-reasoning">ii. Implementation and Reasoning</h4>
+<p>Students learn to make targeted decisions about:</p>
+<ul>
+<li>choosing which variables to keep (e.g., OS type, average daily screen time, TikTok/Instagram usage),</li>
+<li>filtering for complete cases or specific subgroups (e.g., iPhone vs.&nbsp;Android users),</li>
+<li>identifying entries that require additional cleaning.</li>
+</ul>
+<p>Transformations emphasize purposeful selection rather than demonstration of multiple verbs.</p>
+<hr>
+</section>
+</section>
+<section id="e-data-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="e-data-visualization">E) Data Visualization</h3>
+<section id="i.-key-functions-1" class="level4">
+<h4 class="anchored" data-anchor-id="i.-key-functions-1">i. Key Functions</h4>
+<ul>
+<li><code>ggplot()</code></li>
+<li><code>geom_col()</code> or <code>geom_point()</code></li>
+<li><code>geom_histogram()</code></li>
+</ul>
+<p>(Choice depends on the question students want to answer.)</p>
+</section>
+<section id="ii.-implementation-and-reasoning-1" class="level4">
+<h4 class="anchored" data-anchor-id="ii.-implementation-and-reasoning-1">ii. Implementation and Reasoning</h4>
+<p>Students produce simple, interpretable graphs that reflect their transformation choices and highlight patterns in usage behavior. Examples:</p>
+<ul>
+<li>distribution of average screen time,</li>
+<li>comparison of daily usage by major or class standing,</li>
+<li>relationship between number of phone unlocks and screen time.</li>
+</ul>
+<p>Visualization is framed as the <em>culmination</em> of earlier decisions—not as a standalone action.</p>
+<hr>
+</section>
+</section>
+<section id="f-limitationsboundaries" class="level3">
+<h3 class="anchored" data-anchor-id="f-limitationsboundaries">F) Limitations/Boundaries</h3>
+<ul>
+<li>Data is clean and well-structured; minimal wrangling required.</li>
+<li>All variables are self-reported and may contain bias or measurement error.</li>
+<li>No joins, reshaping, or nested structures appear in this cycle.</li>
+<li>Transformations are limited to light selection and filtering to keep cognitive load low.</li>
+</ul>
+</section>
+</section>
+<section id="cycle-2-rookie-seasons-in-the-nba-xlsx" class="level2">
+<h2 class="anchored" data-anchor-id="cycle-2-rookie-seasons-in-the-nba-xlsx">Cycle 2: Rookie Seasons in the NBA (XLSX)</h2>
+<section id="a-datastatistical-question-1" class="level3">
+<h3 class="anchored" data-anchor-id="a-datastatistical-question-1">A) Data/Statistical Question</h3>
+<p>How do the rookie-season performance patterns of Michael Jordan, Kobe Bryant, and LeBron James compare across key summary metrics (e.g., points, rebounds, assists, shooting percentages)?</p>
+<p>This question introduces comparison across individuals using structured data.</p>
+</section>
+<section id="b-pedagogical-purpose-1" class="level3">
+<h3 class="anchored" data-anchor-id="b-pedagogical-purpose-1">B) Pedagogical Purpose</h3>
+<p>This cycle expands ETV beyond a single dataset by introducing multi-sheet Excel extraction and the idea of combining data from separate but structurally similar sources.<br>
+Pedagogical goals include:</p>
+<ul>
+<li>Learning how to extract multiple sheets from a single Excel file.</li>
+<li>Understanding that separate objects representing different players can be combined into a unified dataset.</li>
+<li>Introducing <code>bind_rows()</code> as a conceptual step toward more complex data integration in later cycles.</li>
+<li>Reinforcing transformation reasoning through variable standardization and comparison across players.</li>
+</ul>
+</section>
+<section id="c-data-extraction-xlsx" class="level3">
+<h3 class="anchored" data-anchor-id="c-data-extraction-xlsx">C) Data Extraction – XLSX</h3>
+<section id="i.-key-functions-2" class="level4">
+<h4 class="anchored" data-anchor-id="i.-key-functions-2">i. Key Functions</h4>
+<ul>
+<li><code>readxl::read_excel()</code></li>
+<li><code>dplyr::bind_rows()</code></li>
+</ul>
+</section>
+<section id="ii.-implementation-and-reasoning-2" class="level4">
+<h4 class="anchored" data-anchor-id="ii.-implementation-and-reasoning-2">ii. Implementation and Reasoning</h4>
+<p>The Excel workbook contains <strong>three sheets</strong>:</p>
+<ul>
+<li>“MJ”</li>
+<li>“KB”</li>
+<li>“LJ”</li>
+</ul>
+<p>Each sheet contains the player’s rookie-season statistics with clean, well-structured columns.</p>
+<p>Students must:</p>
+<ul>
+<li>Identify which sheets correspond to players.</li>
+<li>Import each sheet as its own data frame.</li>
+<li>Add a player-identifier column (e.g., <code>"Player" = "Michael Jordan"</code>) so that stacking makes analytic sense.</li>
+<li>Use <code>bind_rows()</code> to create a single, tidy dataset with all three players.</li>
+</ul>
+<p>Reasoning emphasizes:<br>
+“Why do we add identifiers?”<br>
+“Why stack instead of analyze separately?”<br>
+“How does combining data shape future comparisons?”</p>
+</section>
+</section>
+<section id="d-data-transformation-1" class="level3">
+<h3 class="anchored" data-anchor-id="d-data-transformation-1">D) Data Transformation</h3>
+<section id="i.-key-functions-3" class="level4">
+<h4 class="anchored" data-anchor-id="i.-key-functions-3">i. Key Functions</h4>
+<ul>
+<li><code>select()</code></li>
+<li><code>mutate()</code></li>
+<li><code>rename()</code></li>
+<li>(Optionally) <code>clean_names()</code></li>
+</ul>
+</section>
+<section id="ii.-implementation-and-reasoning-3" class="level4">
+<h4 class="anchored" data-anchor-id="ii.-implementation-and-reasoning-3">ii. Implementation and Reasoning</h4>
+<p>Students may:</p>
+<ul>
+<li>Select key performance variables (e.g., PTS, TRB, AST, FG%, minutes played).</li>
+<li>Rename variables from different sheets to ensure consistency (e.g., <code>fg_pct</code> vs <code>field_goal_percentage</code>).</li>
+<li>Mutate new summary variables such as efficiency ratings, points per minute, or usage approximations.</li>
+</ul>
+<p>Reasoning highlights:</p>
+<ul>
+<li>Why selecting consistent variables matters once data are combined.</li>
+<li>How derived variables allow apples-to-apples comparisons across players with different roles or minutes.</li>
+</ul>
+</section>
+</section>
+<section id="e-data-visualization-1" class="level3">
+<h3 class="anchored" data-anchor-id="e-data-visualization-1">E) Data Visualization</h3>
+<section id="i.-key-functions-4" class="level4">
+<h4 class="anchored" data-anchor-id="i.-key-functions-4">i. Key Functions</h4>
+<ul>
+<li><code>ggplot()</code></li>
+<li><code>geom_col()</code></li>
+<li><code>geom_point()</code></li>
+<li><code>geom_bar(stat = "identity")</code></li>
+</ul>
+</section>
+<section id="ii.-implementation-and-reasoning-4" class="level4">
+<h4 class="anchored" data-anchor-id="ii.-implementation-and-reasoning-4">ii. Implementation and Reasoning</h4>
+<p>Students create visualizations that compare rookie-season metrics:</p>
+<ul>
+<li>Bar charts of total points per game for MJ, KB, and LJ.</li>
+<li>Dot plots comparing FG% or FT%.</li>
+<li>Side-by-side bars comparing rebounds or assists.</li>
+</ul>
+<p>Reasoning:</p>
+<ul>
+<li>Why some visual forms make comparisons clearer.</li>
+<li>How earlier choices in renaming/selecting variables affect visualization clarity.</li>
+</ul>
+</section>
+</section>
+<section id="f-limitationsboundaries-1" class="level3">
+<h3 class="anchored" data-anchor-id="f-limitationsboundaries-1">F) Limitations/Boundaries</h3>
+<ul>
+<li>Data are clean and require minimal wrangling; this is intentional for early-cycle cognitive load.</li>
+<li>Only one season per player is included; trends over time are not introduced until later cycles.</li>
+<li>No joins, no nested data, and no reshaping beyond simple stacking (<code>bind_rows</code>).</li>
+<li>Comparisons are limited to the structure provided by the Excel file; no advanced modeling or inference occurs here.</li>
+</ul>
+</section>
+</section>
+<section id="cycle-3-geographic-knowledge-travel-experience-google-sheets" class="level2">
+<h2 class="anchored" data-anchor-id="cycle-3-geographic-knowledge-travel-experience-google-sheets">Cycle 3: Geographic Knowledge &amp; Travel Experience (Google Sheets)</h2>
+<section id="a-datastatistical-question-2" class="level3">
+<h3 class="anchored" data-anchor-id="a-datastatistical-question-2">A) Data/Statistical Question</h3>
+<p>How do students’ geography knowledge, travel history, and prior coursework (e.g., AP U.S. History, AP World History) relate to their ability to identify U.S. states and world regions?</p>
+<p>This question deepens the analytical themes from previous cycles by connecting background knowledge to measurable performance.</p>
+</section>
+<section id="b-pedagogical-purpose-2" class="level3">
+<h3 class="anchored" data-anchor-id="b-pedagogical-purpose-2">B) Pedagogical Purpose</h3>
+<p>This cycle introduces students to extracting data directly from cloud-based sources, emphasizing:</p>
+<ul>
+<li>How authentication, permissions, and cloud infrastructure shape extraction decisions.</li>
+<li>The difference between file-based (CSV/XLSX) and API-like spreadsheet extraction.</li>
+<li>The reproducibility implications of using live, collaborative data sources.</li>
+<li>The necessity of validating structure each time the sheet is accessed, since the dataset may update as new students complete the survey.</li>
+</ul>
+<p>The focus here is on the dynamic nature of cloud-stored data and the responsibility students have in verifying its reliability.</p>
+</section>
+<section id="c-data-extraction-google-sheet" class="level3">
+<h3 class="anchored" data-anchor-id="c-data-extraction-google-sheet">C) Data Extraction – Google Sheet</h3>
+<section id="i.-key-functions-5" class="level4">
+<h4 class="anchored" data-anchor-id="i.-key-functions-5">i. Key Functions</h4>
+<ul>
+<li><code>googlesheets4::gs4_deauth()</code> or authentication flow<br>
+</li>
+<li><code>googlesheets4::read_sheet()</code><br>
+</li>
+<li>(Optional) <code>googlesheets4::sheet_properties()</code></li>
+</ul>
+</section>
+<section id="ii.-implementation-and-reasoning-5" class="level4">
+<h4 class="anchored" data-anchor-id="ii.-implementation-and-reasoning-5">ii. Implementation and Reasoning</h4>
+<p>Students:</p>
+<ul>
+<li>Use <code>gs4_deauth()</code> if the sheet is publicly readable (recommended for teaching).</li>
+<li>Call <code>read_sheet()</code> using the URL of the shared Google Sheet.</li>
+<li>Verify that column types (numeric, logical, text) match expectations.</li>
+<li>Recognize that the dataset may grow in real time as more students submit responses.</li>
+</ul>
+<p>Reasoning focuses on:</p>
+<ul>
+<li>Cloud extraction as a <em>live pull</em> versus file extraction.</li>
+<li>The need to validate structure on each pull because spreadsheets can change.</li>
+<li>The workflow implications of working with collaborative, externally hosted data.</li>
+</ul>
+</section>
+</section>
+<section id="d-data-transformation-2" class="level3">
+<h3 class="anchored" data-anchor-id="d-data-transformation-2">D) Data Transformation</h3>
+<section id="i.-key-functions-6" class="level4">
+<h4 class="anchored" data-anchor-id="i.-key-functions-6">i. Key Functions</h4>
+<ul>
+<li><code>select()</code><br>
+</li>
+<li><code>filter()</code><br>
+</li>
+<li><code>mutate()</code><br>
+</li>
+<li><code>case_when()</code><br>
+</li>
+<li>(Optional) <code>separate()</code> or <code>unite()</code> if survey responses include multi-part fields</li>
+</ul>
+</section>
+<section id="ii.-implementation-and-reasoning-6" class="level4">
+<h4 class="anchored" data-anchor-id="ii.-implementation-and-reasoning-6">ii. Implementation and Reasoning</h4>
+<p>Students transform the data to:</p>
+<ul>
+<li>Select key variables (e.g., number of states correctly identified, travel experience, AP coursework, major).</li>
+<li>Mutate variables into standardized formats (e.g., convert “Yes/No” responses to logical; convert region-identification scores to numeric).</li>
+<li>Create categorical groupings such as:
+<ul>
+<li>“High travel experience” vs “low travel experience”</li>
+<li>“Took AP History” vs “No AP background”</li>
+<li>“Strong geography knowledge” tiers (e.g., scores binned into quantiles)</li>
+</ul></li>
+</ul>
+<p>Reasoning emphasizes:</p>
+<ul>
+<li>How transformations reflect analytic goals (e.g., comparing background experience to performance).</li>
+<li>How to responsibly convert self-reported categorical data into usable analytic formats.</li>
+<li>How transformation choices affect interpretability downstream.</li>
+</ul>
+</section>
+</section>
+<section id="e-data-visualization-2" class="level3">
+<h3 class="anchored" data-anchor-id="e-data-visualization-2">E) Data Visualization</h3>
+<section id="i.-key-functions-7" class="level4">
+<h4 class="anchored" data-anchor-id="i.-key-functions-7">i. Key Functions</h4>
+<ul>
+<li><code>ggplot()</code><br>
+</li>
+<li><code>geom_boxplot()</code><br>
+</li>
+<li><code>geom_col()</code><br>
+</li>
+<li><code>geom_point()</code> or <code>geom_jitter()</code><br>
+</li>
+<li>(Optional) <code>geom_sf()</code> if you choose to integrate maps later (not required here)</li>
+</ul>
+</section>
+<section id="ii.-implementation-and-reasoning-7" class="level4">
+<h4 class="anchored" data-anchor-id="ii.-implementation-and-reasoning-7">ii. Implementation and Reasoning</h4>
+<p>Students create visualizations such as:</p>
+<ul>
+<li>Boxplots comparing geography knowledge scores by AP background.</li>
+<li>Bar charts showing average state-identification accuracy for students with different levels of travel experience.</li>
+<li>Scatterplots comparing world-region knowledge vs.&nbsp;U.S. geography scores.</li>
+</ul>
+<p>Reasoning highlights:</p>
+<ul>
+<li>Why certain visual forms fit comparison tasks (categorical → boxplots, numeric → scatters).</li>
+<li>How transformations earlier in the cycle (e.g., binning, categorizing, converting types) shape what can be visualized.</li>
+</ul>
+</section>
+</section>
+<section id="f-limitationsboundaries-2" class="level3">
+<h3 class="anchored" data-anchor-id="f-limitationsboundaries-2">F) Limitations/Boundaries</h3>
+<ul>
+<li>Google Sheet content may change, introducing reproducibility concerns; students must re-pull data before analysis.</li>
+<li>Data are self-reported and may include recall bias for travel or AP coursework.</li>
+<li>Geometry-based mapping visualizations are not required in this cycle to avoid premature introduction of spatial data structures.</li>
+<li>No joins, reshaping of multiple tables, or nested structures appear here; complexity is limited to transformations within a single live dataset.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="cycle-4-west-coast-states-regional-context-wiki-html-extraction-bind_rows-left_join" class="level2">
+<h2 class="anchored" data-anchor-id="cycle-4-west-coast-states-regional-context-wiki-html-extraction-bind_rows-left_join">Cycle 4: West Coast States &amp; Regional Context (Wiki HTML Extraction + bind_rows + left_join)</h2>
+<section id="a-datastatistical-question-3" class="level3">
+<h3 class="anchored" data-anchor-id="a-datastatistical-question-3">A) Data/Statistical Question</h3>
+<p>How do key demographic, economic, or geographic characteristics of West Coast and Mountain West states (CA, OR, WA, CO) compare, and how do these characteristics relate to a secondary attribute sourced from a different Wikipedia table (e.g., GDP, population rank, land area, cost of living, or educational attainment)?</p>
+<p>This question ties directly to the backgrounds of typical Cal Poly students and expands analytic reasoning across multiple data sources.</p>
+<hr>
+</section>
+<section id="b-pedagogical-purpose-3" class="level3">
+<h3 class="anchored" data-anchor-id="b-pedagogical-purpose-3">B) Pedagogical Purpose</h3>
+<p>Cycle 4 introduces students to:</p>
+<ul>
+<li><strong>HTML table extraction</strong> from Wikipedia pages.<br>
+</li>
+<li><strong>Stacking multiple extracted tables</strong> using <code>bind_rows()</code> after standardizing column names.<br>
+</li>
+<li><strong>Performing a left join</strong> with a second Wiki table to add contextual information.<br>
+</li>
+<li><strong>Transforming each state’s data differently</strong>, demonstrating that real analyses often require state-specific cleaning before merging.</li>
+</ul>
+<p>The cycle builds readiness for handling inconsistencies that arise when multiple data sources—even similar ones—are not perfectly aligned.</p>
+<hr>
+</section>
+<section id="c-data-extraction-wiki-html-1" class="level3">
+<h3 class="anchored" data-anchor-id="c-data-extraction-wiki-html-1">C) Data Extraction – Wiki HTML 1</h3>
+<section id="i.-key-functions-8" class="level4">
+<h4 class="anchored" data-anchor-id="i.-key-functions-8">i. Key Functions</h4>
+<ul>
+<li><code>rvest::read_html()</code><br>
+</li>
+<li><code>rvest::html_table()</code><br>
+</li>
+<li><code>dplyr::bind_rows()</code><br>
+</li>
+<li>(Optional) <code>purrr::map()</code> if you want to automate extraction</li>
+</ul>
+</section>
+<section id="ii.-implementation-and-reasoning-8" class="level4">
+<h4 class="anchored" data-anchor-id="ii.-implementation-and-reasoning-8">ii. Implementation and Reasoning</h4>
+<p>Students:</p>
+<ol type="1">
+<li><p><strong>Navigate to individual Wikipedia pages</strong> for:</p>
+<ul>
+<li>California<br>
+</li>
+<li>Oregon<br>
+</li>
+<li>Washington<br>
+</li>
+<li>Colorado</li>
+</ul></li>
+<li><p><strong>Identify the same type of table</strong> on each page (e.g., “Demographics,” “Economy,” “Geography,” “State symbols,” etc.).</p></li>
+<li><p><strong>Extract tables</strong> using:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_html</span>(url) <span class="sc">|&gt;</span> <span class="fu">html_table</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+<hr>
+</section>
+</section>
+</section>
+<section id="cycle-5-daily-weather-patterns-weather-api-time-series" class="level2">
+<h2 class="anchored" data-anchor-id="cycle-5-daily-weather-patterns-weather-api-time-series">Cycle 5: Daily Weather Patterns (Weather API + Time Series)</h2>
+<section id="a-datastatistical-question-4" class="level3">
+<h3 class="anchored" data-anchor-id="a-datastatistical-question-4">A) Data/Statistical Question</h3>
+<p>How do temperature, humidity, or wind speed vary over time for a given location, and what short-term patterns emerge across hours or days?</p>
+</section>
+<section id="b-pedagogical-purpose-4" class="level3">
+<h3 class="anchored" data-anchor-id="b-pedagogical-purpose-4">B) Pedagogical Purpose</h3>
+<p>This cycle introduces students to real-time data extraction via a weather API while emphasizing the role of <strong>time</strong> as a variable that shapes both transformation decisions and visualization choices. Students learn to combine foundational LFM verbs (select, mutate, filter) within an authentic workflow involving JSON data and time-indexed observations.</p>
+</section>
+<section id="c-data-extraction-weather-api-1" class="level3">
+<h3 class="anchored" data-anchor-id="c-data-extraction-weather-api-1">C) Data Extraction – Weather API 1</h3>
+<section id="i.-key-functions-9" class="level4">
+<h4 class="anchored" data-anchor-id="i.-key-functions-9">i. Key Functions</h4>
+<ul>
+<li><code>httr::GET()</code><br>
+</li>
+<li><code>jsonlite::fromJSON()</code><br>
+</li>
+<li><code>dplyr::as_tibble()</code></li>
+</ul>
+</section>
+<section id="ii.-implementation-and-reasoning-9" class="level4">
+<h4 class="anchored" data-anchor-id="ii.-implementation-and-reasoning-9">ii. Implementation and Reasoning</h4>
+<p>Students: - Query a simple weather API (such as Open-Meteo or NOAA).<br>
+- Extract time-stamped weather metrics (e.g., hourly temperature).<br>
+- Convert nested JSON into a tidy tibble.</p>
+<p>Reasoning focuses on: - Why APIs return nested structures. - How time arrays and value arrays must be paired. - Why converting to a tibble is necessary for downstream transformations.</p>
+</section>
+</section>
+<section id="d-data-transformation-3" class="level3">
+<h3 class="anchored" data-anchor-id="d-data-transformation-3">D) Data Transformation</h3>
+<section id="i.-key-functions-10" class="level4">
+<h4 class="anchored" data-anchor-id="i.-key-functions-10">i. Key Functions</h4>
+<ul>
+<li><code>select()</code><br>
+</li>
+<li><code>mutate()</code> (especially for parsing time with <code>lubridate::ymd_hms</code>)<br>
+</li>
+<li><code>filter()</code></li>
+</ul>
+</section>
+<section id="ii.-implementation-and-reasoning-10" class="level4">
+<h4 class="anchored" data-anchor-id="ii.-implementation-and-reasoning-10">ii. Implementation and Reasoning</h4>
+<p>Students: - Select the relevant variables (e.g., time, temperature, wind speed).<br>
+- Parse the time variable, creating hour, day, or weekday components.<br>
+- Filter for a specific time window (e.g., last 24 hours).</p>
+<p>Reasoning: - Time must be usable (as POSIXct) before plotting.<br>
+- Transformations determine which patterns can be visualized.<br>
+- This builds early time-series intuition.</p>
+</section>
+</section>
+<section id="e-data-visualization-3" class="level3">
+<h3 class="anchored" data-anchor-id="e-data-visualization-3">E) Data Visualization</h3>
+<section id="i.-key-functions-11" class="level4">
+<h4 class="anchored" data-anchor-id="i.-key-functions-11">i. Key Functions</h4>
+<ul>
+<li><code>ggplot()</code><br>
+</li>
+<li><code>geom_line()</code><br>
+</li>
+<li><code>geom_point()</code></li>
+</ul>
+</section>
+<section id="ii.-implementation-and-reasoning-11" class="level4">
+<h4 class="anchored" data-anchor-id="ii.-implementation-and-reasoning-11">ii. Implementation and Reasoning</h4>
+<p>Students produce: - Line plots of temperature over time.<br>
+- Dual-axis plots (optional) for temperature vs.&nbsp;wind speed.</p>
+<p>Reasoning: - Line plots encode temporal continuity; scatterplots do not.<br>
+- Earlier time parsing enables meaningful temporal axes.</p>
+</section>
+</section>
+<section id="f-limitationsboundaries-3" class="level3">
+<h3 class="anchored" data-anchor-id="f-limitationsboundaries-3">F) Limitations/Boundaries</h3>
+<ul>
+<li>Weather APIs occasionally have missing hours or rate limits.</li>
+<li>Timezones may need manual correction.</li>
+<li>JSON structure varies slightly across APIs.</li>
+<li>No advanced forecasting or modeling is introduced here.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="cycle-6-county-level-gdp-and-economic-change-html-tables-from-wikipedia" class="level2">
+<h2 class="anchored" data-anchor-id="cycle-6-county-level-gdp-and-economic-change-html-tables-from-wikipedia">Cycle 6: County-Level GDP and Economic Change (HTML Tables from Wikipedia)</h2>
+<section id="a-datastatistical-question-5" class="level3">
+<h3 class="anchored" data-anchor-id="a-datastatistical-question-5">A) Data/Statistical Question</h3>
+<p>How do GDP levels and growth patterns differ across counties, and what economic trajectories emerge over time when comparing counties of different sizes, regions, or population densities?</p>
+<p>This question introduces students to economic time-series data within a real-world geographic context.</p>
+</section>
+<section id="b-pedagogical-purpose-5" class="level3">
+<h3 class="anchored" data-anchor-id="b-pedagogical-purpose-5">B) Pedagogical Purpose</h3>
+<p>This cycle reinforces HTML extraction while emphasizing that <strong>economic indicators often include implicit or explicit time components</strong>, such as GDP measured annually, over multi-year intervals, or reported with growth percentages. Students must use LFM verbs to clean inconsistencies across county-level tables and to prepare variables for temporal or comparative visualization.</p>
+</section>
+<section id="c-data-extraction-wiki-html-2" class="level3">
+<h3 class="anchored" data-anchor-id="c-data-extraction-wiki-html-2">C) Data Extraction – Wiki HTML 2</h3>
+<section id="i.-key-functions-12" class="level4">
+<h4 class="anchored" data-anchor-id="i.-key-functions-12">i. Key Functions</h4>
+<ul>
+<li><code>rvest::read_html()</code><br>
+</li>
+<li><code>rvest::html_table()</code><br>
+</li>
+<li><code>purrr::map()</code> (optional)<br>
+</li>
+<li><code>dplyr::bind_rows()</code> if multiple tables or regions are combined</li>
+</ul>
+</section>
+<section id="ii.-implementation-and-reasoning-12" class="level4">
+<h4 class="anchored" data-anchor-id="ii.-implementation-and-reasoning-12">ii. Implementation and Reasoning</h4>
+<p>Students: - Navigate to a county-level GDP Wikipedia page or related table such as: - “List of U.S. counties by GDP,”<br>
+- “List of counties in California by GDP,”<br>
+- “Metropolitan areas by GDP,”<br>
+- “U.S. states and counties ranked by economic growth.”<br>
+- Identify which table contains usable GDP data, noting columns such as: - GDP (nominal),<br>
+- GDP per capita,<br>
+- GDP growth %,<br>
+- Year of measurement.<br>
+- Extract the table via <code>html_table()</code> and convert it into a tibble.</p>
+<p>Reasoning: - County-level tables often vary in structure (e.g., different column orders, notes, symbols).<br>
+- GDP is sometimes reported for a single year, other times for a range (e.g., “2017–2021”), requiring interpretation.<br>
+- Students must verify that numeric columns are parsed correctly and that growth metrics align across counties.</p>
+</section>
+</section>
+<section id="d-data-transformation-4" class="level3">
+<h3 class="anchored" data-anchor-id="d-data-transformation-4">D) Data Transformation</h3>
+<section id="i.-key-functions-13" class="level4">
+<h4 class="anchored" data-anchor-id="i.-key-functions-13">i. Key Functions</h4>
+<ul>
+<li><code>mutate()</code><br>
+</li>
+<li><code>separate()</code> or <code>extract()</code><br>
+</li>
+<li><code>case_when()</code><br>
+</li>
+<li><code>rename()</code><br>
+</li>
+<li><code>select()</code></li>
+</ul>
+</section>
+<section id="ii.-implementation-and-reasoning-13" class="level4">
+<h4 class="anchored" data-anchor-id="ii.-implementation-and-reasoning-13">ii. Implementation and Reasoning</h4>
+<p>Students: - Clean GDP fields by removing units (e.g., “$”, “million”, “bn”) and converting them to numerics.<br>
+- Standardize year values—e.g., extracting the first year from ranges such as “2017–2021” or converting multi-year averages into single representative years.<br>
+- Create derived variables, such as: - GDP per capita (if not given),<br>
+- GDP growth rate differences,<br>
+- Regional indicators (West Coast vs.&nbsp;Mountain West counties).<br>
+- Select variables relevant to the analytic question.</p>
+<p>Reasoning: - Economic data often includes symbols, footnotes, or differing units; transformation must create a uniform scale.<br>
+- Time variables need harmonization before year-over-year comparisons are possible.<br>
+- Different counties may require different cleaning strategies, reinforcing that workflow is rarely uniform.</p>
+</section>
+</section>
+<section id="e-data-visualization-4" class="level3">
+<h3 class="anchored" data-anchor-id="e-data-visualization-4">E) Data Visualization</h3>
+<section id="i.-key-functions-14" class="level4">
+<h4 class="anchored" data-anchor-id="i.-key-functions-14">i. Key Functions</h4>
+<ul>
+<li><code>geom_col()</code><br>
+</li>
+<li><code>geom_line()</code><br>
+</li>
+<li><code>geom_point()</code><br>
+</li>
+<li>(Optional) <code>facet_wrap()</code> for comparing multiple counties</li>
+</ul>
+</section>
+<section id="ii.-implementation-and-reasoning-14" class="level4">
+<h4 class="anchored" data-anchor-id="ii.-implementation-and-reasoning-14">ii. Implementation and Reasoning</h4>
+<p>Students create visualizations such as: - Bar charts comparing GDP across counties.<br>
+- Time-series line plots showing year-to-year GDP changes for selected counties.<br>
+- Scatterplots relating GDP to population or GDP per capita.</p>
+<p>Reasoning: - Bar charts highlight economic magnitude; line plots highlight temporal change.<br>
+- Faceted visualizations help compare counties that differ substantially in size or structure.<br>
+- Visualization choices must align with how variables were transformed (e.g., whether the year represents a single value or a range midpoint).</p>
+</section>
+</section>
+<section id="f-limitationsboundaries-4" class="level3">
+<h3 class="anchored" data-anchor-id="f-limitationsboundaries-4">F) Limitations/Boundaries</h3>
+<ul>
+<li>Wikipedia tables may include inconsistent formatting across counties or regions.<br>
+</li>
+<li>GDP data may be from different years or reported using different units, requiring careful standardization.<br>
+</li>
+<li>Time ranges may obscure annual variability.<br>
+</li>
+<li>Economic data for some counties may be missing or incomplete.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="cycle-7-earthquake-activity-temporal-patterns-usgs-api-nested-json" class="level2">
+<h2 class="anchored" data-anchor-id="cycle-7-earthquake-activity-temporal-patterns-usgs-api-nested-json">Cycle 7: Earthquake Activity &amp; Temporal Patterns (USGS API – Nested JSON)</h2>
+<section id="a-datastatistical-question-6" class="level3">
+<h3 class="anchored" data-anchor-id="a-datastatistical-question-6">A) Data/Statistical Question</h3>
+<p>How does earthquake activity vary over time—by hour, day, or week—and what patterns emerge in magnitude, depth, and geographic distribution when analyzing recent seismic events from the USGS Earthquake API?</p>
+<p>This question allows students to investigate real-time, real-world, messy geophysical data with strong temporal and structural complexity.</p>
+<hr>
+</section>
+<section id="b-pedagogical-purpose-6" class="level3">
+<h3 class="anchored" data-anchor-id="b-pedagogical-purpose-6">B) Pedagogical Purpose</h3>
+<p>This cycle serves as the culmination of the ETV framework. Students transition from clean and semi-structured sources to deeply nested, irregular JSON extracted from a live API. Key pedagogical goals:</p>
+<ul>
+<li>Understanding <strong>nested JSON</strong> and the conceptual challenge of unstructured data.</li>
+<li>Reinforcing <em>time</em> as an essential dimension for both transformation and visualization.</li>
+<li>Performing multi-step unnesting, selective flattening, and derived-variable creation.</li>
+<li>Seeing how workflow reasoning guides technical choices, not vice versa.</li>
+<li>Integrating tools learned throughout the quarter—<code>select()</code>, <code>mutate()</code>, <code>filter()</code>, <code>unnest_*()</code>, date parsing, and thoughtful visualization design.</li>
+</ul>
+<p>This cycle mirrors real data science work: incomplete documentation, irregular fields, missing timestamps, and multiple layers of decisions.</p>
+<hr>
+</section>
+<section id="c-data-extraction-usgs-earthquake-api" class="level3">
+<h3 class="anchored" data-anchor-id="c-data-extraction-usgs-earthquake-api">C) Data Extraction – USGS Earthquake API</h3>
+<section id="i.-key-functions-15" class="level4">
+<h4 class="anchored" data-anchor-id="i.-key-functions-15">i. Key Functions</h4>
+<ul>
+<li><code>httr::GET()</code><br>
+</li>
+<li><code>jsonlite::fromJSON()</code><br>
+</li>
+<li><code>as_tibble()</code><br>
+</li>
+<li><code>unnest_wider()</code><br>
+</li>
+<li><code>unnest_longer()</code></li>
+</ul>
+</section>
+<section id="ii.-implementation-and-reasoning-15" class="level4">
+<h4 class="anchored" data-anchor-id="ii.-implementation-and-reasoning-15">ii. Implementation and Reasoning</h4>
+<p>Students:</p>
+<ol type="1">
+<li><p>Query the USGS endpoint such as:<br>
+<code>https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson</code></p></li>
+<li><p>Parse the returned JSON:</p>
+<ul>
+<li>Top-level metadata,<br>
+</li>
+<li>A list-column “features,”<br>
+</li>
+<li>Each feature containing:
+<ul>
+<li><code>properties</code> (time, magnitude, place, etc.)<br>
+</li>
+<li><code>geometry</code> (coordinates: longitude, latitude, depth)</li>
+</ul></li>
+</ul></li>
+<li><p>Convert to tibble, then unnest:</p>
+<ul>
+<li>First unnest <code>features</code><br>
+</li>
+<li>Then unnest <code>properties</code> and <code>geometry</code> fields<br>
+</li>
+<li>Handle list-to-column conversion manually</li>
+</ul></li>
+<li><p>Extract timestamp (epoch milliseconds), magnitude, depth, and coordinates.</p></li>
+</ol>
+<p>Reasoning emphasizes: - JSON is inherently hierarchical; unnesting reflects “flattening” real-world structure.<br>
+- Extraction requires <em>inspection before automation</em>.<br>
+- Students must determine which nested elements contain analytic value.</p>
+<hr>
+</section>
+</section>
+<section id="d-data-transformation-5" class="level3">
+<h3 class="anchored" data-anchor-id="d-data-transformation-5">D) Data Transformation</h3>
+<section id="i.-key-functions-16" class="level4">
+<h4 class="anchored" data-anchor-id="i.-key-functions-16">i. Key Functions</h4>
+<ul>
+<li><code>mutate()</code><br>
+</li>
+<li><code>select()</code><br>
+</li>
+<li><code>rename()</code><br>
+</li>
+<li><code>filter()</code><br>
+</li>
+<li><code>lubridate::as_datetime()</code><br>
+</li>
+<li><code>case_when()</code></li>
+</ul>
+</section>
+<section id="ii.-implementation-and-reasoning-16" class="level4">
+<h4 class="anchored" data-anchor-id="ii.-implementation-and-reasoning-16">ii. Implementation and Reasoning</h4>
+<p>Students transform the flattened table by:</p>
+<ol type="1">
+<li><strong>Converting time:</strong>
+<ul>
+<li>USGS stores timestamps in epoch milliseconds → requires dividing by 1000 and applying <code>as_datetime()</code>.</li>
+</ul></li>
+<li><strong>Selecting and renaming:</strong>
+<ul>
+<li><code>select(time = time, mag = mag, depth, longitude, latitude, place)</code><br>
+</li>
+<li>Ensuring consistent naming across fields.</li>
+</ul></li>
+<li><strong>Creating derived temporal variables:</strong>
+<ul>
+<li>Hour of day<br>
+</li>
+<li>Day of week<br>
+</li>
+<li>Date<br>
+</li>
+<li>Time binning (e.g., 1-hour intervals)</li>
+</ul></li>
+<li><strong>Filtering:</strong>
+<ul>
+<li>Remove events with <code>NA</code> magnitude<br>
+</li>
+<li>Filter by geographic region (e.g., West Coast vs.&nbsp;other)<br>
+</li>
+<li>Focus on the last 24 hours or last 7 days</li>
+</ul></li>
+<li><strong>Handling inconsistencies:</strong>
+<ul>
+<li>Some entries include missing or 0-depth values<br>
+</li>
+<li>Some events are duplicates or have magnitude “null”<br>
+</li>
+<li>Time bins may include gaps</li>
+</ul></li>
+</ol>
+<p>Reasoning emphasizes: - Time transformations shape the narrative structure of the analysis.<br>
+- Derived temporal variables create patterns invisible in raw form.<br>
+- Cleaning choices influence the interpretability of visualizations.</p>
+<hr>
+</section>
+</section>
+<section id="e-data-visualization-5" class="level3">
+<h3 class="anchored" data-anchor-id="e-data-visualization-5">E) Data Visualization</h3>
+<section id="i.-key-functions-17" class="level4">
+<h4 class="anchored" data-anchor-id="i.-key-functions-17">i. Key Functions</h4>
+<ul>
+<li><code>ggplot()</code><br>
+</li>
+<li><code>geom_line()</code><br>
+</li>
+<li><code>geom_point()</code><br>
+</li>
+<li><code>geom_smooth()</code><br>
+</li>
+<li>(Optional) <code>facet_wrap()</code> for comparison</li>
+</ul>
+</section>
+<section id="ii.-implementation-and-reasoning-17" class="level4">
+<h4 class="anchored" data-anchor-id="ii.-implementation-and-reasoning-17">ii. Implementation and Reasoning</h4>
+<p>Students produce:</p>
+<ol type="1">
+<li><strong>Temporal Line Plot:</strong>
+<ul>
+<li>Magnitude over time → shows burst patterns or clustering.</li>
+</ul></li>
+<li><strong>Depth vs.&nbsp;Magnitude Scatterplot:</strong>
+<ul>
+<li>Helps identify whether deeper quakes tend to be stronger.</li>
+</ul></li>
+<li><strong>Hourly Frequency Plot:</strong>
+<ul>
+<li>Counts of earthquakes by hour → reveals temporal grouping.</li>
+</ul></li>
+<li>(Optional) <strong>Geographic Visualization:</strong>
+<ul>
+<li>Mapping longitude × latitude with point size = magnitude<br>
+</li>
+<li>More advanced; can be skipped or used in honors sections.</li>
+</ul></li>
+</ol>
+<p>Reasoning highlights: - Why line plots require correctly parsed time.<br>
+- Why smoothing (<code>geom_smooth()</code>) helps identify broader seismic trends.<br>
+- How earlier transformation decisions determine what can be visualized.<br>
+- The interpretive limitations of short time windows.</p>
+<hr>
+</section>
+</section>
+<section id="f-limitationsboundaries-5" class="level3">
+<h3 class="anchored" data-anchor-id="f-limitationsboundaries-5">F) Limitations/Boundaries</h3>
+<ul>
+<li>API results update continuously; analysis is not static.<br>
+</li>
+<li>Timestamps may exhibit irregular intervals or missing entries.<br>
+</li>
+<li>Deep nesting increases risk of incorrect unnesting without careful checking.<br>
+</li>
+<li>Magnitude measurements below 1.0 may be noisy or imprecise.<br>
+</li>
+<li>Real-time data means reproducibility varies unless snapshots are saved.<br>
+</li>
+<li>Geographic data enables mapping but may exceed the intended conceptual scope of the course.</li>
+</ul>
+<hr>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
