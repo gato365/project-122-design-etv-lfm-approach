@@ -1,0 +1,705 @@
+---
+title: "ETV Cycles"
+format: html
+editor: visual
+---
+
+
+
+Many cyckes can be made this is purely for illustration purposes
+
+
+The driving piece is extraction
+
+
+Types:
+
+1. CSV
+2. XLSX
+3. Google Sheet
+4. wiki html 1
+6. weather api 1
+5. wiki html 2
+7. ______ api 2
+
+
+
+
+
+## Cycle 1: Foundations of Personal Data Awareness (CSV Survey Analysis)
+
+### A) Data/Statistical Question
+
+*How do Cal Poly students use their cell phones, and what patterns emerge in their daily screen time, app usage, and device habits?*
+This question anchors the cycle in authentic, personally meaningful data, creating immediate engagement and a sense of ownership over the analysis.
+
+---
+
+### B) Pedagogical Purpose
+
+Cycle 1 introduces the core principles of ETV using a clean, familiar data format. Students learn:
+
+* how to import structured data,
+* how to inspect and reason about object structure,
+* how early decisions affect downstream transformations, and
+* how to generate simple visualizations grounded in their own lived experience.
+
+This cycle establishes the foundational habits of workflow-based thinking before messiness is introduced in later cycles.
+
+---
+
+### C) Data Extraction — CSV
+
+Students extract their own smartphone–usage survey from a CSV file exported from Google Forms or Qualtrics.
+Key goals:
+
+* understanding file paths and working directories,
+* reading data into an R object, and
+* verifying that the imported data structure matches expectations.
+
+Extraction is intentionally clean to keep cognitive load low.
+
+---
+
+### D) Data Transformation
+
+#### i. Key Functions
+
+* `select()`
+* `filter()`
+
+(Additional functions may be introduced organically as needed but should not be required.)
+
+#### ii. Implementation and Reasoning
+
+Students learn to make targeted decisions about:
+
+* choosing which variables to keep (e.g., OS type, average daily screen time, TikTok/Instagram usage),
+* filtering for complete cases or specific subgroups (e.g., iPhone vs. Android users),
+* identifying entries that require additional cleaning.
+
+Transformations emphasize purposeful selection rather than demonstration of multiple verbs.
+
+---
+
+### E) Data Visualization
+
+#### i. Key Functions
+
+* `ggplot()`
+* `geom_col()` or `geom_point()`
+* `geom_histogram()`
+
+(Choice depends on the question students want to answer.)
+
+#### ii. Implementation and Reasoning
+
+Students produce simple, interpretable graphs that reflect their transformation choices and highlight patterns in usage behavior.
+Examples:
+
+* distribution of average screen time,
+* comparison of daily usage by major or class standing,
+* relationship between number of phone unlocks and screen time.
+
+Visualization is framed as the *culmination* of earlier decisions—not as a standalone action.
+
+---
+
+### F) Limitations/Boundaries
+
+* Data is clean and well-structured; minimal wrangling required.
+* All variables are self-reported and may contain bias or measurement error.
+* No joins, reshaping, or nested structures appear in this cycle.
+* Transformations are limited to light selection and filtering to keep cognitive load low.
+
+
+
+
+## Cycle 2: Rookie Seasons in the NBA (XLSX)
+
+### A) Data/Statistical Question
+
+How do the rookie-season performance patterns of Michael Jordan, Kobe Bryant, and LeBron James compare across key summary metrics (e.g., points, rebounds, assists, shooting percentages)?
+
+This question introduces comparison across individuals using structured data.
+
+### B) Pedagogical Purpose
+
+This cycle expands ETV beyond a single dataset by introducing multi-sheet Excel extraction and the idea of combining data from separate but structurally similar sources.  
+Pedagogical goals include:
+
+- Learning how to extract multiple sheets from a single Excel file.
+- Understanding that separate objects representing different players can be combined into a unified dataset.
+- Introducing `bind_rows()` as a conceptual step toward more complex data integration in later cycles.
+- Reinforcing transformation reasoning through variable standardization and comparison across players.
+
+### C) Data Extraction – XLSX
+
+#### i. Key Functions
+
+- `readxl::read_excel()`
+- `dplyr::bind_rows()`
+
+#### ii. Implementation and Reasoning
+
+The Excel workbook contains **three sheets**:
+
+- “MJ”
+- “KB”
+- “LJ”
+
+Each sheet contains the player’s rookie-season statistics with clean, well-structured columns.
+
+Students must:
+
+- Identify which sheets correspond to players.
+- Import each sheet as its own data frame.
+- Add a player-identifier column (e.g., `"Player" = "Michael Jordan"`) so that stacking makes analytic sense.
+- Use `bind_rows()` to create a single, tidy dataset with all three players.
+
+Reasoning emphasizes:  
+“Why do we add identifiers?”  
+“Why stack instead of analyze separately?”  
+“How does combining data shape future comparisons?”
+
+### D) Data Transformation
+
+#### i. Key Functions
+
+- `select()`
+- `mutate()`
+- `rename()`
+- (Optionally) `clean_names()`
+
+#### ii. Implementation and Reasoning
+
+Students may:
+
+- Select key performance variables (e.g., PTS, TRB, AST, FG%, minutes played).
+- Rename variables from different sheets to ensure consistency (e.g., `fg_pct` vs `field_goal_percentage`).
+- Mutate new summary variables such as efficiency ratings, points per minute, or usage approximations.
+
+Reasoning highlights:
+
+- Why selecting consistent variables matters once data are combined.
+- How derived variables allow apples-to-apples comparisons across players with different roles or minutes.
+
+### E) Data Visualization
+
+#### i. Key Functions
+
+- `ggplot()`
+- `geom_col()`
+- `geom_point()`
+- `geom_bar(stat = "identity")`
+
+#### ii. Implementation and Reasoning
+
+Students create visualizations that compare rookie-season metrics:
+
+- Bar charts of total points per game for MJ, KB, and LJ.
+- Dot plots comparing FG% or FT%.
+- Side-by-side bars comparing rebounds or assists.
+
+Reasoning:
+
+- Why some visual forms make comparisons clearer.
+- How earlier choices in renaming/selecting variables affect visualization clarity.
+
+### F) Limitations/Boundaries
+
+- Data are clean and require minimal wrangling; this is intentional for early-cycle cognitive load.
+- Only one season per player is included; trends over time are not introduced until later cycles.
+- No joins, no nested data, and no reshaping beyond simple stacking (`bind_rows`).
+- Comparisons are limited to the structure provided by the Excel file; no advanced modeling or inference occurs here.
+
+
+
+
+## Cycle 3: Geographic Knowledge & Travel Experience (Google Sheets)
+
+### A) Data/Statistical Question
+
+How do students’ geography knowledge, travel history, and prior coursework (e.g., AP U.S. History, AP World History) relate to their ability to identify U.S. states and world regions?
+
+This question deepens the analytical themes from previous cycles by connecting background knowledge to measurable performance.
+
+### B) Pedagogical Purpose
+
+This cycle introduces students to extracting data directly from cloud-based sources, emphasizing:
+
+- How authentication, permissions, and cloud infrastructure shape extraction decisions.
+- The difference between file-based (CSV/XLSX) and API-like spreadsheet extraction.
+- The reproducibility implications of using live, collaborative data sources.
+- The necessity of validating structure each time the sheet is accessed, since the dataset may update as new students complete the survey.
+
+The focus here is on the dynamic nature of cloud-stored data and the responsibility students have in verifying its reliability.
+
+### C) Data Extraction – Google Sheet
+
+#### i. Key Functions
+
+- `googlesheets4::gs4_deauth()` or authentication flow  
+- `googlesheets4::read_sheet()`  
+- (Optional) `googlesheets4::sheet_properties()`  
+
+#### ii. Implementation and Reasoning
+
+Students:
+
+- Use `gs4_deauth()` if the sheet is publicly readable (recommended for teaching).
+- Call `read_sheet()` using the URL of the shared Google Sheet.
+- Verify that column types (numeric, logical, text) match expectations.
+- Recognize that the dataset may grow in real time as more students submit responses.
+
+Reasoning focuses on:
+
+- Cloud extraction as a *live pull* versus file extraction.
+- The need to validate structure on each pull because spreadsheets can change.
+- The workflow implications of working with collaborative, externally hosted data.
+
+### D) Data Transformation
+
+#### i. Key Functions
+
+- `select()`  
+- `filter()`  
+- `mutate()`  
+- `case_when()`  
+- (Optional) `separate()` or `unite()` if survey responses include multi-part fields  
+
+#### ii. Implementation and Reasoning
+
+Students transform the data to:
+
+- Select key variables (e.g., number of states correctly identified, travel experience, AP coursework, major).
+- Mutate variables into standardized formats (e.g., convert “Yes/No” responses to logical; convert region-identification scores to numeric).
+- Create categorical groupings such as:
+  - “High travel experience” vs “low travel experience”
+  - “Took AP History” vs “No AP background”
+  - “Strong geography knowledge” tiers (e.g., scores binned into quantiles)
+
+Reasoning emphasizes:
+
+- How transformations reflect analytic goals (e.g., comparing background experience to performance).
+- How to responsibly convert self-reported categorical data into usable analytic formats.
+- How transformation choices affect interpretability downstream.
+
+### E) Data Visualization
+
+#### i. Key Functions
+
+- `ggplot()`  
+- `geom_boxplot()`  
+- `geom_col()`  
+- `geom_point()` or `geom_jitter()`  
+- (Optional) `geom_sf()` if you choose to integrate maps later (not required here)
+
+#### ii. Implementation and Reasoning
+
+Students create visualizations such as:
+
+- Boxplots comparing geography knowledge scores by AP background.
+- Bar charts showing average state-identification accuracy for students with different levels of travel experience.
+- Scatterplots comparing world-region knowledge vs. U.S. geography scores.
+
+Reasoning highlights:
+
+- Why certain visual forms fit comparison tasks (categorical → boxplots, numeric → scatters).
+- How transformations earlier in the cycle (e.g., binning, categorizing, converting types) shape what can be visualized.
+
+### F) Limitations/Boundaries
+
+- Google Sheet content may change, introducing reproducibility concerns; students must re-pull data before analysis.
+- Data are self-reported and may include recall bias for travel or AP coursework.
+- Geometry-based mapping visualizations are not required in this cycle to avoid premature introduction of spatial data structures.
+- No joins, reshaping of multiple tables, or nested structures appear here; complexity is limited to transformations within a single live dataset.
+
+
+
+
+---
+## Cycle 4: West Coast States & Regional Context (Wiki HTML Extraction + bind_rows + left_join)
+
+### A) Data/Statistical Question
+
+How do key demographic, economic, or geographic characteristics of West Coast and Mountain West states (CA, OR, WA, CO) compare, and how do these characteristics relate to a secondary attribute sourced from a different Wikipedia table (e.g., GDP, population rank, land area, cost of living, or educational attainment)?
+
+This question ties directly to the backgrounds of typical Cal Poly students and expands analytic reasoning across multiple data sources.
+
+---
+
+### B) Pedagogical Purpose
+
+Cycle 4 introduces students to:
+
+- **HTML table extraction** from Wikipedia pages.  
+- **Stacking multiple extracted tables** using `bind_rows()` after standardizing column names.  
+- **Performing a left join** with a second Wiki table to add contextual information.  
+- **Transforming each state’s data differently**, demonstrating that real analyses often require state-specific cleaning before merging.
+
+The cycle builds readiness for handling inconsistencies that arise when multiple data sources—even similar ones—are not perfectly aligned.
+
+---
+
+### C) Data Extraction – Wiki HTML 1
+
+#### i. Key Functions
+
+- `rvest::read_html()`  
+- `rvest::html_table()`  
+- `dplyr::bind_rows()`  
+- (Optional) `purrr::map()` if you want to automate extraction  
+
+#### ii. Implementation and Reasoning
+
+Students:
+
+1. **Navigate to individual Wikipedia pages** for:
+   - California  
+   - Oregon  
+   - Washington  
+   - Colorado  
+
+2. **Identify the same type of table** on each page (e.g., “Demographics,” “Economy,” “Geography,” “State symbols,” etc.).
+
+3. **Extract tables** using:
+   ```r
+   read_html(url) |> html_table()
+```
+
+---
+## Cycle 5: Daily Weather Patterns (Weather API + Time Series)
+
+### A) Data/Statistical Question
+
+How do temperature, humidity, or wind speed vary over time for a given location, and what short-term patterns emerge across hours or days?
+
+### B) Pedagogical Purpose
+
+This cycle introduces students to real-time data extraction via a weather API while emphasizing the role of **time** as a variable that shapes both transformation decisions and visualization choices. Students learn to combine foundational LFM verbs (select, mutate, filter) within an authentic workflow involving JSON data and time-indexed observations.
+
+### C) Data Extraction – Weather API 1
+
+#### i. Key Functions
+
+- `httr::GET()`  
+- `jsonlite::fromJSON()`  
+- `dplyr::as_tibble()`  
+
+#### ii. Implementation and Reasoning
+
+Students:
+- Query a simple weather API (such as Open-Meteo or NOAA).  
+- Extract time-stamped weather metrics (e.g., hourly temperature).  
+- Convert nested JSON into a tidy tibble.
+
+Reasoning focuses on:
+- Why APIs return nested structures.
+- How time arrays and value arrays must be paired.
+- Why converting to a tibble is necessary for downstream transformations.
+
+### D) Data Transformation
+
+#### i. Key Functions
+
+- `select()`  
+- `mutate()` (especially for parsing time with `lubridate::ymd_hms`)  
+- `filter()`  
+
+#### ii. Implementation and Reasoning
+
+Students:
+- Select the relevant variables (e.g., time, temperature, wind speed).  
+- Parse the time variable, creating hour, day, or weekday components.  
+- Filter for a specific time window (e.g., last 24 hours).
+
+Reasoning:
+- Time must be usable (as POSIXct) before plotting.  
+- Transformations determine which patterns can be visualized.  
+- This builds early time-series intuition.
+
+### E) Data Visualization
+
+#### i. Key Functions
+
+- `ggplot()`  
+- `geom_line()`  
+- `geom_point()`  
+
+#### ii. Implementation and Reasoning
+
+Students produce:
+- Line plots of temperature over time.  
+- Dual-axis plots (optional) for temperature vs. wind speed.  
+
+Reasoning:
+- Line plots encode temporal continuity; scatterplots do not.  
+- Earlier time parsing enables meaningful temporal axes.
+
+### F) Limitations/Boundaries
+
+- Weather APIs occasionally have missing hours or rate limits.
+- Timezones may need manual correction.
+- JSON structure varies slightly across APIs.
+- No advanced forecasting or modeling is introduced here.
+
+
+---
+## Cycle 6: County-Level GDP and Economic Change (HTML Tables from Wikipedia)
+
+### A) Data/Statistical Question
+
+How do GDP levels and growth patterns differ across counties, and what economic trajectories emerge over time when comparing counties of different sizes, regions, or population densities?
+
+This question introduces students to economic time-series data within a real-world geographic context.
+
+### B) Pedagogical Purpose
+
+This cycle reinforces HTML extraction while emphasizing that **economic indicators often include implicit or explicit time components**, such as GDP measured annually, over multi-year intervals, or reported with growth percentages. Students must use LFM verbs to clean inconsistencies across county-level tables and to prepare variables for temporal or comparative visualization.
+
+### C) Data Extraction – Wiki HTML 2
+
+#### i. Key Functions
+
+- `rvest::read_html()`  
+- `rvest::html_table()`  
+- `purrr::map()` (optional)  
+- `dplyr::bind_rows()` if multiple tables or regions are combined  
+
+#### ii. Implementation and Reasoning
+
+Students:
+- Navigate to a county-level GDP Wikipedia page or related table such as:
+  - “List of U.S. counties by GDP,”  
+  - “List of counties in California by GDP,”  
+  - “Metropolitan areas by GDP,”  
+  - “U.S. states and counties ranked by economic growth.”  
+- Identify which table contains usable GDP data, noting columns such as:
+  - GDP (nominal),  
+  - GDP per capita,  
+  - GDP growth %,  
+  - Year of measurement.  
+- Extract the table via `html_table()` and convert it into a tibble.
+
+Reasoning:
+- County-level tables often vary in structure (e.g., different column orders, notes, symbols).  
+- GDP is sometimes reported for a single year, other times for a range (e.g., “2017–2021”), requiring interpretation.  
+- Students must verify that numeric columns are parsed correctly and that growth metrics align across counties.
+
+### D) Data Transformation
+
+#### i. Key Functions
+
+- `mutate()`  
+- `separate()` or `extract()`  
+- `case_when()`  
+- `rename()`  
+- `select()`  
+
+#### ii. Implementation and Reasoning
+
+Students:
+- Clean GDP fields by removing units (e.g., “$”, “million”, “bn”) and converting them to numerics.  
+- Standardize year values—e.g., extracting the first year from ranges such as “2017–2021” or converting multi-year averages into single representative years.  
+- Create derived variables, such as:
+  - GDP per capita (if not given),  
+  - GDP growth rate differences,  
+  - Regional indicators (West Coast vs. Mountain West counties).  
+- Select variables relevant to the analytic question.
+
+Reasoning:
+- Economic data often includes symbols, footnotes, or differing units; transformation must create a uniform scale.  
+- Time variables need harmonization before year-over-year comparisons are possible.  
+- Different counties may require different cleaning strategies, reinforcing that workflow is rarely uniform.
+
+### E) Data Visualization
+
+#### i. Key Functions
+
+- `geom_col()`  
+- `geom_line()`  
+- `geom_point()`  
+- (Optional) `facet_wrap()` for comparing multiple counties  
+
+#### ii. Implementation and Reasoning
+
+Students create visualizations such as:
+- Bar charts comparing GDP across counties.  
+- Time-series line plots showing year-to-year GDP changes for selected counties.  
+- Scatterplots relating GDP to population or GDP per capita.
+
+Reasoning:
+- Bar charts highlight economic magnitude; line plots highlight temporal change.  
+- Faceted visualizations help compare counties that differ substantially in size or structure.  
+- Visualization choices must align with how variables were transformed (e.g., whether the year represents a single value or a range midpoint).
+
+### F) Limitations/Boundaries
+
+- Wikipedia tables may include inconsistent formatting across counties or regions.  
+- GDP data may be from different years or reported using different units, requiring careful standardization.  
+- Time ranges may obscure annual variability.  
+- Economic data for some counties may be missing or incomplete.
+
+
+---
+
+
+## Cycle 7: Earthquake Activity & Temporal Patterns (USGS API – Nested JSON)
+
+### A) Data/Statistical Question
+
+How does earthquake activity vary over time—by hour, day, or week—and what patterns emerge in magnitude, depth, and geographic distribution when analyzing recent seismic events from the USGS Earthquake API?
+
+This question allows students to investigate real-time, real-world, messy geophysical data with strong temporal and structural complexity.
+
+---
+
+### B) Pedagogical Purpose
+
+This cycle serves as the culmination of the ETV framework. Students transition from clean and semi-structured sources to deeply nested, irregular JSON extracted from a live API. Key pedagogical goals:
+
+- Understanding **nested JSON** and the conceptual challenge of unstructured data.
+- Reinforcing *time* as an essential dimension for both transformation and visualization.
+- Performing multi-step unnesting, selective flattening, and derived-variable creation.
+- Seeing how workflow reasoning guides technical choices, not vice versa.
+- Integrating tools learned throughout the quarter—`select()`, `mutate()`, `filter()`, `unnest_*()`, date parsing, and thoughtful visualization design.
+
+This cycle mirrors real data science work: incomplete documentation, irregular fields, missing timestamps, and multiple layers of decisions.
+
+---
+
+### C) Data Extraction – USGS Earthquake API
+
+#### i. Key Functions
+
+- `httr::GET()`  
+- `jsonlite::fromJSON()`  
+- `as_tibble()`  
+- `unnest_wider()`  
+- `unnest_longer()`  
+
+#### ii. Implementation and Reasoning
+
+Students:
+
+1. Query the USGS endpoint such as:  
+   `https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson`
+
+2. Parse the returned JSON:
+   - Top-level metadata,  
+   - A list-column “features,”  
+   - Each feature containing:
+     - `properties` (time, magnitude, place, etc.)  
+     - `geometry` (coordinates: longitude, latitude, depth)  
+
+3. Convert to tibble, then unnest:
+   - First unnest `features`  
+   - Then unnest `properties` and `geometry` fields  
+   - Handle list-to-column conversion manually
+
+4. Extract timestamp (epoch milliseconds), magnitude, depth, and coordinates.
+
+Reasoning emphasizes:
+- JSON is inherently hierarchical; unnesting reflects “flattening” real-world structure.  
+- Extraction requires *inspection before automation*.  
+- Students must determine which nested elements contain analytic value.
+
+---
+
+### D) Data Transformation
+
+#### i. Key Functions
+
+- `mutate()`  
+- `select()`  
+- `rename()`  
+- `filter()`  
+- `lubridate::as_datetime()`  
+- `case_when()`  
+
+#### ii. Implementation and Reasoning
+
+Students transform the flattened table by:
+
+1. **Converting time:**  
+   - USGS stores timestamps in epoch milliseconds → requires dividing by 1000 and applying `as_datetime()`.
+
+2. **Selecting and renaming:**  
+   - `select(time = time, mag = mag, depth, longitude, latitude, place)`  
+   - Ensuring consistent naming across fields.
+
+3. **Creating derived temporal variables:**  
+   - Hour of day  
+   - Day of week  
+   - Date  
+   - Time binning (e.g., 1-hour intervals)
+
+4. **Filtering:**  
+   - Remove events with `NA` magnitude  
+   - Filter by geographic region (e.g., West Coast vs. other)  
+   - Focus on the last 24 hours or last 7 days
+
+5. **Handling inconsistencies:**  
+   - Some entries include missing or 0-depth values  
+   - Some events are duplicates or have magnitude “null”  
+   - Time bins may include gaps
+
+Reasoning emphasizes:
+- Time transformations shape the narrative structure of the analysis.  
+- Derived temporal variables create patterns invisible in raw form.  
+- Cleaning choices influence the interpretability of visualizations.
+
+---
+
+### E) Data Visualization
+
+#### i. Key Functions
+
+- `ggplot()`  
+- `geom_line()`  
+- `geom_point()`  
+- `geom_smooth()`  
+- (Optional) `facet_wrap()` for comparison  
+
+#### ii. Implementation and Reasoning
+
+Students produce:
+
+1. **Temporal Line Plot:**  
+   - Magnitude over time → shows burst patterns or clustering.  
+
+2. **Depth vs. Magnitude Scatterplot:**  
+   - Helps identify whether deeper quakes tend to be stronger.  
+
+3. **Hourly Frequency Plot:**  
+   - Counts of earthquakes by hour → reveals temporal grouping.  
+
+4. (Optional) **Geographic Visualization:**  
+   - Mapping longitude × latitude with point size = magnitude  
+   - More advanced; can be skipped or used in honors sections.
+
+Reasoning highlights:
+- Why line plots require correctly parsed time.  
+- Why smoothing (`geom_smooth()`) helps identify broader seismic trends.  
+- How earlier transformation decisions determine what can be visualized.  
+- The interpretive limitations of short time windows.
+
+---
+
+### F) Limitations/Boundaries
+
+- API results update continuously; analysis is not static.  
+- Timestamps may exhibit irregular intervals or missing entries.  
+- Deep nesting increases risk of incorrect unnesting without careful checking.  
+- Magnitude measurements below 1.0 may be noisy or imprecise.  
+- Real-time data means reproducibility varies unless snapshots are saved.  
+- Geographic data enables mapping but may exceed the intended conceptual scope of the course.
+
+
+
+
+
+
+
+---

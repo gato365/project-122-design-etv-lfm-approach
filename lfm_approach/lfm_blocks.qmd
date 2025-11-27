@@ -1,0 +1,350 @@
+---
+title: "LFM Blocks"
+format: html
+editor: visual
+---
+
+
+## 1. List of LFM Blocks
+
+
+
+### **Recommended Example Data Frames (Use Across Units)**
+
+Use any 5 per lesson; here are 10 excellent ones:
+
+* `mtcars` (base R, numeric-heavy)
+* `iris` (base R, mixed types)
+* `penguins` (palmerpenguins)
+* `gapminder` (gapminder)
+* `storms` (dplyr)
+* `flights` (nycflights13)
+* `diamonds` (ggplot2)
+* `mpg` (ggplot2)
+* `babynames` (babynames)
+* `economics` (ggplot2)
+
+I’ll attach 5 recommended data frames for each lesson from this set.
+
+---
+
+### **WEEK 1: Foundations of R & Tidy Data**
+
+---
+
+#### **1. R Basics (Data Frames & Tidy Data)**
+
+**Generic Name:** *Foundational R Objects & Data Structures*
+**Library:** Base R
+**Key Functions/Concepts:**
+
+* `c()`, `data.frame()`, `list()`, indexing `[]`
+* object types & structures: atomic vectors, lists, data frames
+* introduction to tidy data principles
+
+**Example Data Frames:** `mtcars`, `iris`, `penguins`, `gapminder`, `mpg`
+
+---
+
+### **WEEK 2: Core Data Manipulation with dplyr**
+
+---
+
+#### **2. dplyr I – The 5 Verbs**
+
+**Generic Name:** *Core Transformations*
+**Library:** dplyr
+**Functions:**
+
+* `select()`
+* `filter()`
+* `mutate()`
+* `summarise()` + `group_by()`
+* `arrange()`
+
+**Example Data Frames:** `mtcars`, `penguins`, `diamonds`, `flights`, `storms`
+
+---
+
+### **WEEK 3: Visualization Foundations**
+
+---
+
+#### **3. ggplot2 I – Layers & Geoms Basics**
+
+**Generic Name:** *Visualization Grammar*
+**Library:** ggplot2
+**Functions:**
+
+* `ggplot()`
+* `geom_point()`
+* `geom_bar()`
+* `geom_line()`
+* `labs()`
+* `theme_bw()`
+
+**Example Data Frames:** `mpg`, `iris`, `penguins`, `diamonds`, `economics`
+
+---
+
+### **WEEK 4: Joins, Tidying, & Reshaping**
+
+---
+
+#### **4. dplyr II – Joins & Binds**
+
+**Generic Name:** *Relational Data Operations*
+**Library:** dplyr
+**Functions:**
+
+* `inner_join()`
+* `left_join()`
+* `full_join()`
+* `bind_rows()`
+* `bind_cols()`
+
+**Example Data Frames:** `flights`, `weather` (nycflights13), `airports`, `iris`, `mtcars`
+
+---
+
+#### **5. tidyr – Pivoting & Reshaping**
+
+**Generic Name:** *Data Reshaping & Structural Manipulation*
+**Library:** tidyr
+**Functions:**
+
+* `pivot_longer()`
+* `pivot_wider()`
+* `separate()`
+* `unite()`
+
+**Example Data Frames:** `penguins`, `storms`, `gapminder`, `diamonds`, `economics`
+
+---
+
+### **WEEK 5: Strings, Factors, Dates**
+
+---
+
+#### **6. stringr – String Manipulation Basics**
+
+**Generic Name:** *Text Cleaning & Regular Expressions*
+**Library:** stringr
+**Functions:**
+
+* `str_detect()`
+* `str_replace()`
+* `str_to_lower()` / `str_to_upper()`
+* `str_sub()`
+* `str_split()`
+
+**Example Data Frames:** `babynames`, `storms`, `flights`, `penguins`, `gapminder`
+
+---
+
+#### **7. forcats – Working with Factors**
+
+**Generic Name:** *Categorical Data Handling*
+**Library:** forcats
+**Functions:**
+
+* `fct_reorder()`
+* `fct_relevel()`
+* `fct_lump()`
+* `fct_infreq()`
+
+**Example Data Frames:** `mpg`, `iris`, `penguins`, `diamonds`, `gapminder`
+
+---
+
+#### **8. lubridate – Date/Time Basics**
+
+**Generic Name:** *Time-Based Data Handling*
+**Library:** lubridate
+**Functions:**
+
+* `ymd()`
+* `mdy()`
+* `hms()`
+* `floor_date()`
+* `ceiling_date()`
+
+**Example Data Frames:** `flights`, `storms`, `economics`, `gapminder`, `mtcars` (synthetic timestamps)
+
+---
+
+### **WEEK 6: More Advanced Wrangling & Program Flow**
+
+---
+
+#### **9. ggplot2 II – Advanced Visual Techniques**
+
+**Generic Name:** *Applied Visualization Concepts*
+**Library:** ggplot2
+**Functions:**
+
+* `facet_wrap()`
+* `facet_grid()`
+* `scale_*()` families
+* `stat_*()` families
+* themes: `theme_minimal()`, `theme_classic()`
+
+**Example Data Frames:** `mpg`, `diamonds`, `penguins`, `economics`, `gapminder`
+
+---
+
+#### **10. Iteration I – Loops**
+
+**Generic Name:** *Basic Iteration Structures*
+**Library:** Base R
+**Functions:**
+
+* `for()` loops
+* `while()`
+* `if()` inside loops
+
+**Example Data Frames:** `list(mtcars, iris, penguins…)`, `gapminder`, small synthetic lists
+
+---
+
+#### **11. Conditional Logic**
+
+**Generic Name:** *Control Flow & Logical Branching*
+**Library:** Base + dplyr
+**Functions:**
+
+* `if()`
+* `ifelse()`
+* `case_when()`
+
+**Example Data Frames:** `penguins`, `iris`, `diamonds`, `gapminder`, `mtcars`
+
+---
+
+#### **12. Functions (Writing Your Own)**
+
+**Generic Name:** *Creating Reusable Code*
+**Library:** Base R
+**Functions:**
+
+* `function()`
+* scoping basics
+* returning objects
+
+**Example Data Frames:** any 5; choose from: `mtcars`, `iris`, `penguins`, `diamonds`, `gapminder`
+
+---
+
+### **WEEK 7: Iteration II & Purrr**
+
+---
+
+#### **13. purrr – Functional Programming**
+
+**Generic Name:** *Map-based Iteration*
+**Library:** purrr
+**Functions:**
+
+* `map()`
+* `map_df()`
+* `map_chr()`
+* `map_dbl()`
+
+**Example Data Frames:** lists of tibbles, nested JSON lists, `penguins`, `flights`, `gapminder`
+
+---
+
+### **WEEK 8: Statistical Foundations**
+
+---
+
+#### **14. Statistical Analysis I**
+
+**Generic Name:** *Introductory Modeling*
+**Library:** stats + broom
+**Functions:**
+
+* `lm()`
+* `t.test()`
+* `broom::tidy()`
+* `broom::augment()`
+
+**Example Data Frames:** `penguins`, `mtcars`, `iris`, `economics`, `diamonds`
+
+---
+
+#### **15. Statistical Analysis II**
+
+**Generic Name:** *Multivariable Modeling & Inference*
+**Library:** stats + broom + modelr
+**Functions:**
+
+* multiple regression: `lm(y ~ x1 + x2)`
+* `anova()`
+* model diagnostics
+
+**Example Data Frames:** `mtcars`, `diamonds`, `gapminder`, `penguins`, `flights`
+
+---
+
+### **WEEK 9: Simulation**
+
+---
+
+#### **16. Simulation**
+
+**Generic Name:** *Randomization & Generative Models*
+**Library:** Base R + tidyverse
+**Functions:**
+
+* `rnorm()`
+* `runif()`
+* `sample()`
+* simulation loops
+* `replicate()`
+
+**Example Data Frames:** synthetic frames, `mtcars`, `penguins`, `iris`, simulated distributions
+
+---
+
+### **WEEK 10: Applications & Shiny**
+
+---
+
+#### **17. Shiny Basics**
+
+**Generic Name:** *Interactive Web Apps in R*
+**Library:** shiny
+**Functions:**
+
+* `ui <- fluidPage()`
+* `server <- function()`
+* `renderPlot()`
+* `reactive()`
+
+**Example Data Frames:** `mpg`, `diamonds`, `flights`, `gapminder`, `penguins`
+
+
+
+
+## 2. Table of LFM Blocks
+
+| Sec | Generic Name | Library | Key Functions | Example Data Frames |
+|-------------|-------------|-------------|--------------------|----------------|
+| **1** | Foundational R Objects & Data Structures | Base R | `c()`, `data.frame()`, lists, indexing `[]` | `mtcars`, `iris`, `penguins`, `gapminder`, `mpg` |
+| **2** | Core Transformations (dplyr I) | dplyr | `select()`, `filter()`, `mutate()`, `summarise()`, `group_by()`, `arrange()` | `mtcars`, `penguins`, `diamonds`, `flights`, `storms` |
+| **3** | Visualization Grammar (ggplot2 I) | ggplot2 | `ggplot()`, `geom_point()`, `geom_line()`, `geom_bar()`, `labs()`, `theme_bw()` | `mpg`, `iris`, `penguins`, `diamonds`, `economics` |
+| **4** | Relational Data Operations (dplyr II) | dplyr | `inner_join()`, `left_join()`, `full_join()`, `bind_rows()`, `bind_cols()` | `flights`, `weather`, `airports`, `iris`, `mtcars` |
+| **5** | Data Reshaping & Tidying (tidyr) | tidyr | `pivot_longer()`, `pivot_wider()`, `separate()`, `unite()` | `penguins`, `storms`, `gapminder`, `diamonds`, `economics` |
+| **6** | Text Cleaning & Regular Expressions (stringr) | stringr | `str_detect()`, `str_replace()`, `str_to_lower()`, `str_split()`, `str_sub()` | `babynames`, `storms`, `flights`, `penguins`, `gapminder` |
+| **7** | Handling Categorical Data (forcats) | forcats | `fct_reorder()`, `fct_relevel()`, `fct_lump()`, `fct_infreq()` | `mpg`, `iris`, `penguins`, `diamonds`, `gapminder` |
+| **8** | Working with Dates & Times (lubridate) | lubridate | `ymd()`, `mdy()`, `hms()`, `floor_date()`, `ceiling_date()` | `flights`, `storms`, `economics`, `gapminder`, `mtcars` |
+| **9** | Applied Visualization Techniques (ggplot2 II) | ggplot2 | `facet_wrap()`, `facet_grid()`, `scale_*()`, `stat_*()`, `theme_minimal()` | `mpg`, `diamonds`, `penguins`, `economics`, `gapminder` |
+| **10** | Introduction to Iteration (Loops) | Base R | `for()`, `while()`, `if()` inside loops | lists of tibbles, `gapminder`, `iris`, `mtcars`, `penguins` |
+| **11** | Control Flow & Logical Branching | Base R + dplyr | `if()`, `ifelse()`, `case_when()` | `penguins`, `iris`, `diamonds`, `gapminder`, `mtcars` |
+| **12** | Writing Your Own Functions | Base R | `function()`, returns, scoping | `mtcars`, `iris`, `penguins`, `diamonds`, `gapminder` |
+| **13** | Functional Programming with purrr | purrr | `map()`, `map_df()`, `map_chr()`, `map_dbl()` | lists of tibbles, JSON lists, `penguins`, `flights`, `gapminder` |
+| **14** | Introductory Statistical Modeling | stats + broom | `lm()`, `t.test()`, `broom::tidy()`, `augment()` | `penguins`, `mtcars`, `iris`, `economics`, `diamonds` |
+| **15** | Multivariable Modeling & Diagnostics | stats + broom + modelr | `lm()`, `anova()`, residual diagnostics | `mtcars`, `diamonds`, `gapminder`, `penguins`, `flights` |
+| **16** | Simulation & Randomization | Base R + tidyverse | `rnorm()`, `runif()`, `sample()`, loops, `replicate()` | simulated data, `mtcars`, `penguins`, `iris`, distributions |
+| **17** | Interactive Web Apps (Shiny Basics) | shiny | `fluidPage()`, `server()`, `renderPlot()`, `reactive()` | `mpg`, `diamonds`, `flights`, `gapminder`, `penguins` |
